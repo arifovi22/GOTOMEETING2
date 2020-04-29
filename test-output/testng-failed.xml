@@ -5,7 +5,7 @@
     <classes>
       <class name="allTest.TakeScreenShort">
         <methods>
-          <include name="mouseHover"/>
+          <include name="alertHandel"/>
         </methods>
       </class> <!-- allTest.TakeScreenShort -->
     </classes>

@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12660" started-at="2020-04-26T13:35:52 EDT" finished-at="2020-04-26T13:36:04 EDT">
+  <suite name="Default suite" duration-ms="24293" started-at="2020-04-29T13:55:19 EDT" finished-at="2020-04-29T13:55:43 EDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12660" started-at="2020-04-26T13:35:52 EDT" finished-at="2020-04-26T13:36:04 EDT">
+    <test name="Default test" duration-ms="24293" started-at="2020-04-29T13:55:19 EDT" finished-at="2020-04-29T13:55:43 EDT">
       <class name="allTest.TakeScreenShort">
-        <test-method status="PASS" signature="mouseHover()[pri:0, instance:allTest.TakeScreenShort@7a1ebcd8]" name="mouseHover" duration-ms="12590" started-at="2020-04-26T13:35:52 EDT" finished-at="2020-04-26T13:36:04 EDT">
+        <test-method status="PASS" signature="alertHandel()[pri:0, instance:allTest.TakeScreenShort@7a1ebcd8]" name="alertHandel" duration-ms="24165" started-at="2020-04-29T13:55:19 EDT" finished-at="2020-04-29T13:55:43 EDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- mouseHover -->
+        </test-method> <!-- alertHandel -->
       </class> <!-- allTest.TakeScreenShort -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

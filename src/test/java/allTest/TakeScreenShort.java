@@ -2,12 +2,9 @@ package allTest;
 
 
 import java.io.IOException;
-
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import allPages.MasterPage;
 
 
@@ -34,16 +31,25 @@ public class TakeScreenShort {
 		"Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.");
 		masterPage.driver.close();
 	}
-	@Test
+	//@Test
 	public void mouseHover() {
 		String item = "xpath://div[@id='ui-id-17']";
 		masterPage.openBrowser("chrome","https://jqueryui.com/themeroller/");
 		masterPage.scrollDown(0,2500);
-
 		WebElement element = masterPage.webElement(item);
-		masterPage.mouseHover(element);
-		
-		
+		masterPage.mouseHover(element);	
+	}
+	@Test
+	public void alertHandel() throws InterruptedException {
+		String inputBox = "xpath://input[@name='cusid']";
+		//String submitButton = "xpath://input[@name='submit']";
+		masterPage.openBrowser("chrome", "http://demo.guru99.com/test/delete_customer.php");
+		masterPage.typeOnElement(inputBox, "1234");
+		String alertText = masterPage.alertHandel();
+		Assert.assertEquals(alertText, 
+				"Do you really want to delete this Customer?");
+		String actualtext= masterPage.alertHandel();
+		Assert.assertEquals(actualtext, "Customer Successfully Delete!");
 	}
 	
 	

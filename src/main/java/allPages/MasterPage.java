@@ -3,6 +3,7 @@ package allPages;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -18,9 +19,9 @@ import org.testng.annotations.Parameters;
 
 
 public class MasterPage {
-	
-	 public WebDriver driver;
-	
+
+	public WebDriver driver;
+
 
 	@Parameters({"browser"})
 	@BeforeTest
@@ -52,11 +53,11 @@ public class MasterPage {
 		if (locator.contains("xpath")) {
 			actual = driver.findElement(By.xpath(locator.split(":")[1])).getText();
 		} else if (locator.contains("cssSelector")) {
-		actual =	driver.findElement(By.cssSelector(locator.split(":")[1])).getText();
+			actual =	driver.findElement(By.cssSelector(locator.split(":")[1])).getText();
 		}
 		return actual;
 	}
-	
+
 	public void typeOnElement(String locator, String value) {
 		if (locator.contains("xpath")) {
 			driver.findElement(By.xpath(locator.split(":")[1])).sendKeys(value,Keys.ENTER);
@@ -64,7 +65,7 @@ public class MasterPage {
 			driver.findElement(By.cssSelector(locator.split(":")[1])).sendKeys(value, Keys.ENTER);
 		}
 	}
-	
+
 	public void takeScreenshors(String filename) throws IOException {
 		TakesScreenshot screenshot = (TakesScreenshot)driver;
 		File getTypeFile = screenshot.getScreenshotAs(OutputType.FILE);
@@ -75,7 +76,7 @@ public class MasterPage {
 	public void switchFrame(int index) {
 		driver.switchTo().frame(index);
 	}
-	
+
 	public void scrollDown(int wide, int length) {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy("+wide+","+length+")");
@@ -87,11 +88,19 @@ public class MasterPage {
 	public WebElement webElement(String locator) {
 		WebElement element = null;
 		if (locator.contains("xpath")) {
-		element = driver.findElement(By.xpath(locator.split(":")[1]));
+			element = driver.findElement(By.xpath(locator.split(":")[1]));
 		} else if (locator.contains("cssSelector")) {
-		element = driver.findElement(By.cssSelector(locator.split(":")[1]));
+			element = driver.findElement(By.cssSelector(locator.split(":")[1]));
 		}
 		return element;
 	}
-
+	//04/29/2020
+	public String alertHandel() throws InterruptedException {
+		Alert alert = driver.switchTo().alert();
+		String alertText = driver.switchTo().alert().getText();
+		System.out.println(alertText);
+		Thread.sleep(5000);
+		alert.accept();
+		return alertText;
+	}
 }
